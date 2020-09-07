@@ -41,7 +41,7 @@ def find_missing(sequence):
 
 ## 다른 사람의 풀이 방법
 
-### Best Practice for me
+### 가장 깔끔하다고 생각하는 풀이
 
 ```python
 def find_missing(sequence):
@@ -55,7 +55,7 @@ def find_missing(sequence):
 * `diff` 를 구하여서, 완성된 수열을 구하고, 멤버쉽 체크로 없는 것을 return 해준다.
 * 정민님 풀이 법인데, 매우 깔끔하고 군더더기 없는 코드라고 생각한다.
 
-### Best Practice
+### 그외 다른 풀이 1
 
 ```python
 def find_missing(sequence):
@@ -69,7 +69,7 @@ def find_missing(sequence):
 * 이 문제에서는 바로 인접한 값들을 일일이 비교하여서, interval값과 다르면 바로 리턴하였다.
 * 이 코드 역시 매우 깔끔하고 문제를 푸는데 최적화된 풀이라고 생각한다.
 
-### Clever
+### 그외 다른 풀이 2
 
 ```python
 def find_missing(sequence):

@@ -124,11 +124,9 @@ class TestCalc(unittest.TestCase):
 
 
 
-
-
 ## 다른 사람의 풀이 방법
 
-### Best Practice for me
+### 가장 깔끔하다고 생각하는 풀이
 
 ```python
 from operator import add, sub, mul, truediv
@@ -147,48 +145,9 @@ def calc(expr):
 
 * 역시나 정민이 코드인데, 내가 작성한 코드와 비슷한데 훨씬더 코드가 깔끔한 느낌이 든다.
 
-### Best Practice
+### 그 외 풀이 방법
 
-```python
-import operator
-
-def calc(expr):
-    OPERATORS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '/': operator.truediv}
-    stack = [0]
-    for token in expr.split(" "):
-        if token in OPERATORS:
-            op2, op1 = stack.pop(), stack.pop()
-            stack.append(OPERATORS[token](op1,op2))
-        elif token:
-            stack.append(float(token))
-    return stack.pop()
-```
-
-* 이게 Best Practice 인데, 사실 좀 수정할 부분도 보인다
-* 내 코드와 거의 비슷한데, 상수를 함수 밖으로 빼놓은다던지, split할 때 굳이 (" ")를 할필요가 없다던지의 코드리뷰 거리가 보인다
-
-### Clever
-
-```python
-operator = set(['+', '-', '*', '/'])
-
-def calc(expr):
-    stack = list()
-    for c in expr.split():
-        if c in operator : 
-            first = stack.pop()
-            second = stack.pop()
-            stack.append(str(eval(second + c + first)))
-        else : stack.append(c)
-    return eval(stack.pop()) if stack else 0
-```
-
-* 이 코드도 거의 비슷한데, 코드리뷰 포인트가 몇가지 있다
-  * stack을 list()로 생성할 필요가 굳이 없다.
-  * operator 를 셋으로 만들 때, 굳이 리스트로 만들어서 다시 set을 만들 필요가 없고, 상수로 처리할 것 이였다면, `operator` 를 대문자로 써주어야 한다.
-  * `eval` 을 사용하였는데, 특별한 경우가 아니라면 왠만하면 쓰지 않는 것이 좋을 것 같다.
-
-
+* 딱히 다른 코드 중 참고할 코드가 없었음
 
 ## 배운 점
 
@@ -209,3 +168,4 @@ def calc(expr):
 * stack 문제 유형에 대해서 파악하고 관련 문제가 나오면 바로 바로 적용
   * Postfix operator 문제
   * 괄호 짝 맞춤 문제 등등
+
